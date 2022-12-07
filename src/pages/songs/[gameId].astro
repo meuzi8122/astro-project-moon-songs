@@ -1,0 +1,29 @@
+---
+import { findSongs } from "~/cms/client";
+import SongCard from "~/components/card/song.astro";
+import { GAMES } from "~/constants/domain";
+import Layout from "~/layouts/index.astro";
+
+export const getStaticPaths = async () => {
+    return Object.keys(GAMES).map((gameId) => ({ params: { gameId } }));
+};
+
+const { gameId } = Astro.params;
+
+const songs = await findSongs(gameId);
+---
+
+<Layout>
+    <div class="flex flex-wrap flex-col content-center mt-8">
+        <h1 class="text-xl font-semibold text-center mb-8">Songs</h1>
+
+        {
+            songs.map((song) => (
+                <>
+                    <SongCard song={song} />
+                    <div class="divider" />
+                </>
+            ))
+        }
+    </div>
+</Layout>

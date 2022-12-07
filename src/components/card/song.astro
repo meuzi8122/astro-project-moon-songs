@@ -1,0 +1,26 @@
+---
+import PlayerIcon from "~/assets/images/player.svg";
+
+interface Props {
+    song: Song;
+}
+
+const { song } = Astro.props;
+---
+
+<div class="card min-w-fit bg-base-100 shadow-xl image-full">
+    <img src={song.artworkUrl} alt={song.title} width="400" height="220" />
+    <div class="card-body">
+        <h2 class="card-title">{song.title}</h2>
+        <p>{song.kind}</p>
+        <div class="card-actions justify-end">
+            <a
+                href={song.youtubeUrl}
+                target="_blank"
+                class="btn btn-primary btn-circle"
+            >
+                <img src={PlayerIcon} />
+            </a>
+        </div>
+    </div>
+</div>

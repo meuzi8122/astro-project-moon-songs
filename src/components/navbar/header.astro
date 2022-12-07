@@ -1,0 +1,29 @@
+---
+import Menu from "~/assets/images/menu.svg";
+import { GAMES } from "~/constants/domain";
+---
+
+<header>
+    <div class="navbar bg-base-300 rounded-box">
+        <div class="flex-1 px-2 lg:flex-none">
+            <a href="/" class="text-lg font-bold">PM Songs</a>
+        </div>
+        <div class="flex justify-end flex-1 px-2">
+            <div class="flex items-stretch">
+                <div class="dropdown dropdown-end">
+                    <label tabindex={0} class="btn bg-base-300">
+                        <img src={Menu} />
+                    </label>
+                    <ul
+                        tabindex={0}
+                        class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4"
+                    >
+                        <li><a href="/songs/lc">{GAMES.lc}</a></li>
+                        <li><a href="/songs/lor">{GAMES.lor}</a></li>
+                        <li><a href="/songs/lcb">{GAMES.lcb}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
